@@ -1,0 +1,14 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.item{
+    background-color: orange;
+    border: 2px solid wheat;
+}
+.container{
+    display:grid;
+    grid-template-rows: 50px,50px,50px;
+    /* grid-template-columns: repeat(3,50px); */
+    /* grid-template-columns: 1fr,2fr,1fr; */
+    grid-template-columns: 50px,50px,50px,50px;
+}
