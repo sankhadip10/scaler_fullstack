@@ -12,6 +12,41 @@
     /* grid-template-columns: repeat(3,50px); */
     /* grid-template-columns: 1fr,2fr,1fr; */
     grid-template-columns: 50px 50px 50px;
+    /* grid-template-columns: 1fr minmax(50px,4fr) 1fr; */
 
-    gap: 20px;
+    grid-auto-flow: 30px;
+
+    grid-auto-flow: row;
+
+    /* new-version-use */
+    /* gap: 20px; */
+
+    /* old-version-Don not use */
+    grid-gap: 20px;
+}
+/* .item-1{
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+.item-2{
+    grid-row-start:1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.item-3{
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.item-5{
+    grid-row: 2/4;
+} */
+
+.item-5{
+    justify-self: end;
+    align-self: center;
 }
