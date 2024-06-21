@@ -1,0 +1,1 @@
+const data = fetch('https://google.com')
