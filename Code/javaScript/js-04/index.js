@@ -1,39 +1,39 @@
-//DRY dont repeat yourself
+// DRY dont repeat yourself
 
-// function runThisCodeForme(anyFn){
-//     console.log('Inside runThisCodeForMe')
-//     anyFn("hhhh")
-// }
+function runThisCodeForme(anyFn){
+    console.log('Inside runThisCodeForMe')
+    anyFn("hhhh")
+}
 
-// function saySankhadip(hh){
-//     console.log('Hey I am Sankhadip',hh)
-// }
+function saySankhadip(hh){
+    console.log('Hey I am Sankhadip',hh)
+}
 
-// runThisCodeForme(saySankhadip)
-
-
-// function hack(relFn){
-//     console.log("One Percent...")
-//     console.log("TWo Percent...")
-//     console.log("Three Percent...")
-//     console.log("Four Percent...")
-//     relFn('Super secret Data')
-// }
-
-// hack(function(ans){
-//     console.log("I was able to hack",ans)
-// })
+runThisCodeForme(saySankhadip)
 
 
-const fs =require('fs')
+function hack(relFn){
+    console.log("One Percent...")
+    console.log("TWo Percent...")
+    console.log("Three Percent...")
+    console.log("Four Percent...")
+    relFn('Super secret Data')
+}
 
-fs.readFile('secret.txt','utf-8',function(err,data){
-    if(err){
-
-    }else{
-        console.log('Data in file',data)
-    }
-
+hack(function(ans){
+    console.log("I was able to hack",ans)
 })
 
-console.log("continue....")
+
+// const fs =require('fs')
+
+// fs.readFile('secret.txt','utf-8',function(err,data){
+//     if(err){
+
+//     }else{
+//         console.log('Data in file',data)
+//     }
+
+// })
+
+// console.log("continue....")
