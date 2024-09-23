@@ -6,7 +6,7 @@ arr.forEach(function(value){
 })
 
 
-//cusom for Each
+//custom for Each
 
 
 function myforEach(arr,cb){
