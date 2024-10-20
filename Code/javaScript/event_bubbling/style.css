@@ -1,0 +1,12 @@
+#grand-parent{
+    background-color: blue;
+    height: 50px;
+    width:200px;
+    padding: 10px;
+}
+
+#parent{
+    background-color:chocolate;
+ 
+    padding: 10px;
+}
