@@ -1,8 +1,46 @@
-//In 2025 a new .myCall function 
+//In 2025 a new .myCall function is coming
 if(!Function.prototype.myCall){
-    Function.prototype.myCall =function(context){
-        //polyphill for .call
-        console.log(`This is my call`)
+    Function.prototype.myCall =function(context,...args){
+        //polyphill for my .call
+        // console.log(`This is my call`)
+        const myFn = Symbol('myFn');
+
+        context[myFn] = this;
+        context[myFn](...args);
+        delete context[myFn];
+        
+        // context.hululu =this
+        // context.hululu(...args)
+
+        // delete context.hululu
+    }
+}
+
+if(!Function.prototype.myApply){
+    Function.prototype.myApply =function(context,args=[]){
+        //polyphill for my .call
+        // console.log(`This is my call`)
+        const myFn = Symbol('myFn');
+
+        context[myFn] = this;
+        context[myFn](...args);
+        delete context[myFn];
+        
+       
+    }
+}
+
+if(!Function.prototype.myBind){
+    Function.prototype.myBind =function(context,...args){
+        //polyphill for my .call
+        // console.log(`This is my call`)
+        const functionToCall = this
+
+        return function(...extraArgs){
+            functionToCall.myApply(context,[...args,...extraArgs])
+        }
+        
+       
     }
 }
 
@@ -13,17 +51,22 @@ const sankha ={
     fname:'Sankah',
     lname:'das',
 
-
+    
     displayFullName(){
         console.log(`${this.fname} ${this.lname}`)
     }
 }
 
-test1.myCall(sankha)
+test1.myCall(sankha,1,2,10)
+console.log(sankha)
 
+
+test1.myApply(sankha,[1,2,3])
 // setTimeout(sankha.displayFullName,4*1000)
 // setTimeout(()=>sankha.displayFullName(),4*1000)
-
+const ref = test1.myBind(sankha,1,2)
+ref(2)
+ref(9)
 
 const john ={
     fname:'John',
@@ -66,8 +109,10 @@ const obj ={
 }
 
 function dummy(){
-    console.log(this.name)
+    console.log(this.fname)
 }
 
 obj.hululu = dummy
+
 obj.hululu()
+// console.log(obj)
