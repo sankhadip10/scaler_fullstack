@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 //pages
 import HomePage from './pages/home'
+import FavPage from './pages/fav';
+
 
 //Components
 import Navbar  from "./components/navbar";
@@ -13,6 +15,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/fav-list" element={<FavPage />} />
       </Routes>
 
     </>

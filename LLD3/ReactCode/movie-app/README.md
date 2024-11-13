@@ -6,3 +6,13 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+
+<!-- https://www.npmjs.com/package/axios?activeTab=code -->
+<!-- https://developer.themoviedb.org/reference/account-get-favorites
+https://www.npmjs.com/package/prop-types
+https://mui.com/material-ui/react-grid2/
+https://reactrouter.com/en/main/router-components/browser-router
+https://www.npmjs.com/package/react-router-dom -->
+

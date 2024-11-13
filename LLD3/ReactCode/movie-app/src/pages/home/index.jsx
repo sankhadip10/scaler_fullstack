@@ -1,5 +1,5 @@
 //core libraries
-// import { useEffect, useState } from "react"
+import { useEffect, useRef} from "react"
 
 //Third Party
 import Grid from "@mui/material/Grid"
@@ -33,20 +33,56 @@ const HomePage = () => {
 
     const {loading,results,nextPage} = useMovies()
 
+    const lastElementRef = useRef(null);
+
+    useEffect(()=>{
+
+        if (loading) return;
+        const observer = new IntersectionObserver((entries)=>{
+            const el = entries[0];
+            if(el && el.isIntersecting){
+                // console.log(el.isIntersecting)
+                nextPage();
+            }
+        },
+        {
+            rootMargin: "100px", // Trigger before the element is fully in view
+            threshold: 1.0, // Trigger when 100% of the element is in view
+        }
+    );
+
+        if (lastElementRef.current) observer.observe(lastElementRef.current);
+
+        return ()=>{
+            if (lastElementRef.current) observer.disconnect(lastElementRef.current);
+        };
+    },[nextPage,loading]);
+
     return (
         <div className="homepage-container">
             <section className="movies-container">
                 <Grid container spacing={2}>
                     {results.map((movie,index) => (
                         <Grid item key={`${movie.id}-${index}`}>
-                            <MovieCard title={movie.title}
+                            <MovieCard
+                                context ="homepage"
+                                movieId = {movie.id}
+                                title={movie.title}
+                                description={movie.overview}
                                 imageURL={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                             />
                         </Grid>
                     ))}
                 </Grid>
                 {/* <Button disabled={loading} onClick={()=>setPage(page+1)} variant="contained">Load More</Button> */}
-                <Button disabled={loading} onClick={nextPage} variant="contained">Load More</Button>
+                <div 
+                    ref={lastElementRef}
+                    // disabled={loading} 
+                    // onClick={nextPage} 
+                    // variant="contained"
+                    style={{ height: "1px", marginBottom: "20px" }} // Ensure visibility
+
+                />
 
             </section>
 
